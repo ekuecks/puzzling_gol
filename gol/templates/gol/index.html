@@ -1,0 +1,11 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% if game_seed %}
+    <ul>
+        <li>{{game_seed}}</li>
+    </ul>
+{% else %}
+    <p>No game seed given!</p>
+{% endif %}
