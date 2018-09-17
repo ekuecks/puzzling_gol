@@ -1,0 +1,77 @@
+.info {
+}
+
+.game-container {
+    height: 1550px;
+    width: 710px;
+    margin: auto;
+}
+
+.game-board {
+    height: 710px;
+    width: 710px;
+    border-style: solid;
+    border-width: 5px 0px 0px 5px;
+    border-color: black;
+}
+
+.solution-board {
+}
+
+.goal-cell {
+    height: 141px;
+    width: 141px;
+    float: left;
+    border-style: solid;
+    border-width: 0px 5px 5px 0px;
+    border-color: black !important;
+}
+
+.game-cell {
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.game-header {
+    height: 105px;
+    width: 710px;
+}
+
+.buffer {
+    height: 100px;
+    width: 710px;
+    text-align: center;
+    font-size: 48px;
+    color: black;
+    line-height: 100px;
+}
+
+.game-button {
+    width: 200px;
+    height: 90px;
+    margin: 5px 0px 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    color: white;
+    border: none;
+    line-height: 90px;
+    float: left;
+    cursor: pointer;
+}
+
+.game-reset {
+}
+
+.game-go {
+}
+
+.game-step {
+}
+
+.alive {
+}
+
+.dead {
+}

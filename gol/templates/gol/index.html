@@ -1,11 +1,52 @@
-{% load bootstrap3 %}
+{% load static %}
+<script type="text/javascript" src="{% static "js/jquery.js" %}" />
+{% load bootstrap4 %}
+{% load gol_extras %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-{% if game_seed %}
-    <ul>
-        <li>{{game_seed}}</li>
-    </ul>
-{% else %}
-    <p>No game seed given!</p>
-{% endif %}
+<link rel="stylesheet" type="text/css" href="{% static "gol/css/gol.css" %}"></link>
+<link rel="stylesheet" type="text/css" href="{% static "gol/css/bootstrap.css" %}">
+</link>
+<script type="text/javascript" src="{% static "gol/js/gol.js" %}"></script>
+<script type="text/javascript" src="{% static "gol/js/bootstrap.js" %}"></script>
+
+<div class="game-container">
+    <div class="game-header">
+        {% buttons %} 
+            <div onclick="reset()">
+                {% bootstrap_button "Reset" button_class="btn-danger" button_type="reset" extra_classes="game-button game-reset" %}
+            </div>
+            <div onclick="step()">
+                {% bootstrap_button "Step" button_class="btn-primary" button_type="submit" extra_classes="game-button game-step" %}
+            </div>
+            {% with "go("|concat:steps|concat:")" as go_function %}
+                <div onclick="{{ go_function }}">
+                    {% bootstrap_button "Go" button_class="btn-success" button_type="submit" extra_classes="game-button game-go" %}
+                </div>
+            {% endwith %}
+        {% endbuttons %}
+    </div>
+    <div class="game-board">
+        {% for id in board_ids %}
+            {% with "toggle_cell("|concat:id|concat:")" as click_function %}
+                <div
+                    class="btn-danger goal-cell game-cell dead"
+                    id={{id}}
+                    onclick="{{ click_function }}"
+                ></div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+    <div class="buffer">
+        <p>GOAL</p>
+    </div>
+    <div class="game-board solution-board">
+        {% for id in goal_ids %}
+            <div class="goal-cell bg-danger dead" id={{id}}"></div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script>reset()</script>

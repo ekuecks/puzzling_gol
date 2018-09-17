@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "bootstrap3",
+    "bootstrap4",
+    "jquery",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
